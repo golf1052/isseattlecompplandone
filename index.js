@@ -21,7 +21,6 @@ function main() {
     document.body.style.background = Color.mix('crimson', '#00964D', percentOfYearLeft);
 }
 
-
 setInterval(() => {
     main()
 }, 1000);
