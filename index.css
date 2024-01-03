@@ -1,0 +1,21 @@
+body {
+    color: white;
+    background-color: #00964D;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.center {
+    text-align: center;
+}
+
+a {
+    color: skyblue;
+}
