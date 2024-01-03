@@ -7,8 +7,7 @@ try {
 } catch (err) {
 }
 
-
-setInterval(() => {
+function main() {
     const currentDate = new Date();
     const endOf2024 = new Date('2024-12-31T23:59:59');
     const timeLeft = endOf2024 - currentDate;
@@ -20,4 +19,11 @@ setInterval(() => {
     document.getElementById('timeRemaining').innerText = `${daysLeft}d ${hoursLeft}h ${minutesLeft}m ${secondsLeft}s remaining`;
 
     document.body.style.background = Color.mix('crimson', '#00964D', percentOfYearLeft);
+}
+
+
+setInterval(() => {
+    main()
 }, 1000);
+
+main();
