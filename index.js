@@ -81,7 +81,6 @@ function showNearestOpenHouse() {
             });
         })
         .then((position) => {
-            document.getElementById('testPosition').innerText = `${position.coords.latitude}, ${position.coords.longitude}`;
             const now = new Date();
             const locations = openHouseLocations
                 .slice()
@@ -98,15 +97,6 @@ function showNearestOpenHouse() {
                         return distanceA - distanceB;
                     }
                 });
-            locations.forEach((location) => {
-                const div = document.createElement('div');
-                if (location.latitude) {
-                    div.innerText = `${location.name} - ${haversineDistance(position.coords.latitude, position.coords.longitude, location.latitude, location.longitude)} km`;
-                } else {
-                    div.innerText = `${location.name}`;
-                }
-                document.getElementById('testPosition').append(div);
-            })
             if (locations.length > 0) {
                 const nearestLocation = locations[0];
                 document.getElementById('nearestOpenHouseHeader').innerHTML = 'Comment on the draft plan at your nearest open house';
@@ -131,7 +121,7 @@ function showNearestOpenHouse() {
                 document.getElementById('nearestOpenHouseAddress').innerText = `Address: ${nearestLocation.address}`;
                 document.getElementById('nearestOpenHouseLink').innerHTML = `<a href="${nearestLocation.link}" target="_blank">More info</a>`;
             }
-        })
+        });
     } else {
     }
 }
