@@ -46,8 +46,8 @@ const openHouseLocations = [
     },
     {
         name: "Eckstein Middle School",
-        dateTimeStart: "2024-04-25T01:00Z",
-        dateTimeEnd: "2024-04-25T02:30Z",
+        dateTimeStart: "2024-04-26T01:00Z",
+        dateTimeEnd: "2024-04-26T02:30Z",
         address: "3003 NE 75th St, Seattle, WA 98115",
         latitude: 47.682284,
         longitude: -122.294994,
@@ -55,8 +55,8 @@ const openHouseLocations = [
     },
     {
         name: "Seattle City Hall",
-        dateTimeStart: "2024-04-31T01:00Z",
-        dateTimeEnd: "2024-04-31T02:30Z",
+        dateTimeStart: "2024-05-01T01:00Z",
+        dateTimeEnd: "2024-05-01T02:30Z",
         address: "601 5th Ave, Seattle, WA 98104",
         latitude: 47.6037753,
         longitude: -122.3297049,
