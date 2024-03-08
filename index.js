@@ -81,6 +81,7 @@ function showNearestOpenHouse() {
             });
         })
         .then((position) => {
+            document.getElementById('testPosition').innerText = `${position.coords.latitude}, ${position.coords.longitude}`;
             const now = new Date();
             const locations = openHouseLocations
                 .slice()
