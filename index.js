@@ -103,6 +103,7 @@ function showNearestOpenHouse() {
                 document.getElementById('nearestOpenHouseList').removeAttribute('hidden');
                 document.getElementById('nearestOpenHouseName').innerHTML = `<a href="${nearestLocation.link}" target="_blank">${nearestLocation.name}</a>`;
                 const startDateTime = new Date(nearestLocation.dateTimeStart);
+                const endDateTime = new Date(nearestLocation.dateTimeEnd);
                 const dateString = startDateTime.toLocaleDateString(undefined, {
                     weekday: 'long',
                     year: 'numeric',
@@ -113,13 +114,30 @@ function showNearestOpenHouse() {
                     hour: 'numeric',
                     minute: '2-digit'
                 });
-                const endTimeString = new Date(nearestLocation.dateTimeEnd).toLocaleTimeString(undefined, {
+                const endTimeString = endDateTime.toLocaleTimeString(undefined, {
                     hour: 'numeric',
                     minute: '2-digit'
                 });
                 document.getElementById('nearestOpenHouseDateTime').innerText = `Date: ${dateString} - ${startTimeString} - ${endTimeString}`;
                 document.getElementById('nearestOpenHouseAddress').innerText = `Address: ${nearestLocation.address}`;
                 document.getElementById('nearestOpenHouseLink').innerHTML = `<a href="${nearestLocation.link}" target="_blank">More info</a>`;
+                const event = ics.createEvent({
+                    start: startDateTime.getTime(),
+                    end: endDateTime.getTime(),
+                    title: `One Seattle Plan Open House: ${nearestLocation.name}`,
+                    description: nearestLocation.link,
+                    location: nearestLocation.address,
+                    geo: { lat: nearestLocation.latitude, lon: nearestLocation.longitude },
+                    url: nearestLocation.link
+                });
+                const filename = 'OneSeattlePlanOpenHouse.ics';
+                const file = new File([event.value], filename, { type: 'text/calendar' });
+                const url = URL.createObjectURL(file);
+                const anchor = document.createElement('a');
+                anchor.href = url;
+                anchor.download = filename;
+                anchor.innerText = 'Add to calendar';
+                document.getElementById('nearestOpenHouseAddToCalendar').append(anchor);
             }
         });
     } else {
