@@ -98,6 +98,15 @@ function showNearestOpenHouse() {
                         return distanceA - distanceB;
                     }
                 });
+            locations.forEach((location) => {
+                const div = document.createElement('div');
+                if (location.latitude) {
+                    div.innerText = `${location.name} - ${haversineDistance(position.coords.latitude, position.coords.longitude, location.latitude, location.longitude)} km`;
+                } else {
+                    div.innerText = `${location.name}`;
+                }
+                document.getElementById('testPosition').append(div);
+            })
             if (locations.length > 0) {
                 const nearestLocation = locations[0];
                 document.getElementById('nearestOpenHouseHeader').innerHTML = 'Comment on the draft plan at your nearest open house';
