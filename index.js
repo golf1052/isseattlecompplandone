@@ -54,12 +54,12 @@ const openHouseLocations = [
         link: "https://engage.oneseattleplan.com/en/events/990cf7e9-8a67-4a61-83ac-9861fd9777d7"
     },
     {
-        name: "Seattle City Hall",
+        name: "McClure Middle School",
         dateTimeStart: "2024-05-01T01:00Z",
         dateTimeEnd: "2024-05-01T02:30Z",
-        address: "601 5th Ave, Seattle, WA 98104",
-        latitude: 47.6037753,
-        longitude: -122.3297049,
+        address: "1915 1st Ave W, Seattle, WA 98119",
+        latitude: 47.636872,
+        longitude: -122.358959,
         link: "https://engage.oneseattleplan.com/en/events/fcdad573-6ea8-47a1-bb70-288b84e0eaae"
     },
     {
